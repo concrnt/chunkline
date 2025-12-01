@@ -21,11 +21,11 @@ type Manifest struct {
 	Metadata   any      `json:"metadata"`
 }
 
-func (m Manifest) time2Chunk(t time.Time) int64 {
+func (m Manifest) Time2Chunk(t time.Time) int64 {
 	return t.Unix() / m.ChunkSize
 }
 
-func (m Manifest) chunk2Time(c int64) time.Time {
+func (m Manifest) Chunk2Time(c int64) time.Time {
 	return time.Unix(c*m.ChunkSize, 0)
 }
 

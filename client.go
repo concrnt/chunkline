@@ -117,12 +117,12 @@ func (s *Client) QueryDescending(ctx context.Context, uris []string, until time.
 				Index:    nextIndex,
 			})
 		} else {
-			prevChunkId := manifests[timeline].time2Chunk(smallest.Item.Timestamp)
+			prevChunkId := manifests[timeline].Time2Chunk(smallest.Item.Timestamp)
 			if prevChunkId == chunks[timeline].ChunkID {
 				prevChunkId--
 			}
 
-			prevChunks, err := s.getChunks(ctx, []string{timeline}, manifests[timeline].chunk2Time(prevChunkId))
+			prevChunks, err := s.getChunks(ctx, []string{timeline}, manifests[timeline].Chunk2Time(prevChunkId))
 			if err != nil {
 				continue
 			}
