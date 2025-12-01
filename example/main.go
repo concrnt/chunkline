@@ -13,19 +13,6 @@ import (
 	"github.com/concrnt/chunkline"
 )
 
-/*
-func main() {
-	uri := "cc://ccs15zt7a8kxv2k9pguy4m6wfucwj2makte8fzfl7v/tjv0dzcwkcm7jmnbp06afthgerc"
-
-	resource, err := resolveResource[chunkline.Manifest](uri, "application/chunkline+json")
-	if err != nil {
-		panic(err)
-	}
-	fmt.Printf("Resource: %+v\n", resource)
-
-}
-*/
-
 type resolver struct {
 }
 
@@ -186,3 +173,4 @@ func main() {
 		fmt.Printf("Item: %+v\n", item)
 	}
 }
+
