@@ -173,4 +173,3 @@ func main() {
 		fmt.Printf("Item: %+v\n", item)
 	}
 }
-

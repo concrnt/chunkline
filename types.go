@@ -12,13 +12,13 @@ type Endpoint struct {
 }
 
 type Manifest struct {
-	Version    string   `json:"version"`
-	ChunkSize  int64    `json:"chunk_size"`
-	FirstChunk int      `json:"first_chunk"`
-	LastChunk  int      `json:"last_chunk"`
-	Ascending  Endpoint `json:"ascending"`
-	Descending Endpoint `json:"descending"`
-	Metadata   any      `json:"metadata"`
+	Version    string    `json:"version"`
+	ChunkSize  int64     `json:"chunk_size"`
+	FirstChunk int64     `json:"first_chunk"`
+	LastChunk  int64     `json:"last_chunk"`
+	Ascending  *Endpoint `json:"ascending,omitempty"`
+	Descending *Endpoint `json:"descending,omitempty"`
+	Metadata   any       `json:"metadata"`
 }
 
 func (m Manifest) Time2Chunk(t time.Time) int64 {
@@ -39,9 +39,9 @@ type BodyChunk struct {
 
 type BodyItem struct {
 	Timestamp   time.Time `json:"timestamp"`
-	Content     string    `json:"content"`
-	ContentType string    `json:"content_type"`
-	Href        string    `json:"href"`
+	Content     string    `json:"content,omitempty"`
+	ContentType string    `json:"content_type,omitempty"`
+	Href        string    `json:"href,omitempty"`
 }
 
 func (b BodyItem) ID() string {
